@@ -1,3 +1,9 @@
+/*
+*@Discription 总地图布局    
+*@Author tong
+*@Date   2019/9/19
+*/
+
 #include "Castle.h"
 #include "Socket.h"
 
@@ -100,11 +106,11 @@ void Castle::HiddenRoomsUnlocker(char const* monstername, Monster** monsters)
 
 void Castle::SetDecriptionOfRooms()
 {
-	//char file_name[FILE_NAME_MAX_SIZE + 1] = "rooms.txt";
-	//SocketHst socketHst;
-	//socketHst.Download(file_name);
-	//string file_name = "rooms.txt";
-	ifstream InputStream("rooms.txt");
+	char file_name[FILE_NAME_MAX_SIZE + 1] = "rooms.txt";
+	SocketHst socketHst;
+	socketHst.Download(file_name);
+	string file_name = "rooms.txt";
+	ifstream InputStream(file_name);
 	if (InputStream.is_open())
 	{
 		char buffer[300];

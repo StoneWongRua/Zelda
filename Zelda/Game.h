@@ -1,7 +1,14 @@
+/*
+*@Discription 游戏类头文件    
+*@Author tong
+*@Date   2019/9/20
+*/
+
 #pragma once
 #include "Castle.h"
 #include "Item.h"
 #include "Player.h"
+
 class Game
 {
 public:

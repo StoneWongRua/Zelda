@@ -1,7 +1,14 @@
+/*
+*@Discription 房间类头文件    
+*@Author tong
+*@Date   2019/9/20
+*/
 #pragma once
+
 #include "Item.h"
 #include "Monster.h"
 #include "Princess.h"
+
 class Room
 {
 private:
@@ -39,7 +46,4 @@ public:
 	void SetCurPrincess(Princess*);
 	void SetDiscription(char const*);
 	void SetRoomNumber(int);
-
-
-
 };

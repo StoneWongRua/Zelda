@@ -1,5 +1,13 @@
+/*
+*@Discription 怪物类头文件    
+*@Author tong
+*@Date   2019/9/20
+*/
+
 #pragma once
+
 #include "Item.h"
+
 class Monster
 {
 public:
@@ -17,5 +25,4 @@ private:
 	char* monster_name;
 	bool is_alive;
 	Item* killing_weapon;
-
 };

@@ -1,3 +1,8 @@
+/*
+*@Discription ∑øº‰¿‡    
+*@Author tong
+*@Date   2019/9/19
+*/
 #include "Room.h"
 
 #include <iostream>
@@ -35,17 +40,23 @@ Room::~Room()
 int Room::DirectionIndex(char const* direction)
 {
 	int i = 0;
+
 	if (strcmp(direction, "NORTH") == 0)
+	{
 		i = 0;
-
+	}
 	else if (strcmp(direction, "SOUTH") == 0)
+	{
 		i = 1;
-
+	}
 	else if (strcmp(direction, "EAST") == 0)
+	{
 		i = 2;
-
+	}
 	else if (strcmp(direction, "WEST") == 0)
+	{
 		i = 3;
+	}
 
 	return i;
 }
@@ -55,16 +66,21 @@ char* Room::DirectionName(int i)
 	char* buffer = new char[10];
 
 	if (i == 0)
+	{
 		strcpy_s(buffer, 10, "North");
-
+	}
 	else if (i == 1)
+	{
 		strcpy_s(buffer, 10, "South");
-
+	}
 	else if (i == 2)
+	{
 		strcpy_s(buffer, 10, "East");
-
+	}
 	else if (i == 3)
+	{
 		strcpy_s(buffer, 10, "West");
+	}
 
 	return buffer;
 }

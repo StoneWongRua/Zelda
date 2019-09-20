@@ -1,4 +1,10 @@
+/*
+*@Discription 物品类头文件    
+*@Author tong
+*@Date   2019/9/20
+*/
 #pragma once
+
 class Item
 {
 public:

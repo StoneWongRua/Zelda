@@ -1,3 +1,8 @@
+/*
+*@Discription socket‘§∂®“Â    
+*@Author tong
+*@Date   2019/9/20
+*/
 #pragma once
 #define  _WINSOCK_DEPRECATED_NO_WARNINGS
 #define _CRT_SECURE_NO_WARNINGS
@@ -21,5 +26,7 @@ public:
 	SOCKET StarUpSocket();
 	void Download(char file_name[]);
 protected:
+
 private:
+
 };

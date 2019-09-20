@@ -1,7 +1,15 @@
+/*
+*@Discription 玩家类头文件    
+*@Author tong
+*@Date   2019/9/20
+*/
+
 #pragma once
+
 #include "Princess.h"
 #include "Item.h"
 #include "Room.h"
+
 class Player
 {
 private:

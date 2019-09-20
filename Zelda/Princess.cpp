@@ -1,3 +1,8 @@
+/*
+*@Discription 公主类实现    
+*@Author tong
+*@Date   2019/9/20
+*/
 #include "Princess.h"
 
 #include <iostream>

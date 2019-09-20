@@ -1,3 +1,9 @@
+/*
+*@Discription ÓÎÏ·Ö÷Âß¼­    
+*@Author tong
+*@Date   2019/9/20
+*/
+
 #include "Game.h"
 #include "Helper.h"
 #include "Socket.h"
@@ -11,40 +17,28 @@ using namespace std;
 
 Game::Game()
 {
-	//Creating Items for the Game
 	items_ptr[0] = new Treasure("GOLDEN EGG", 500000);
 	items_ptr[1] = new Treasure("GOLDEN CHALICE", 500000);
 	items_ptr[2] = new Treasure("PROOF", 1000000);
 	items_ptr[3] = new Weapon("SHIELD");
 	items_ptr[4] = new Weapon("DAGGER");
 
-
-	//Creating Monsters for the Game
 	monsters_ptr[0] = new Monster("MEDUSA", items_ptr[3]);
 	monsters_ptr[1] = new Monster("DRACULA", items_ptr[4]);
 
-
-	//Creating Princess for the Game
 	princess_ptr = new Princess;
 
-
-	//Creating Castle for the Game
 	castle_ptr = new Castle;
 
-
-	//Placing items and monsters in rooms and linking them
 	castle_ptr->LinkRoomsWithOrtherThings(items_ptr, monsters_ptr, princess_ptr);
 	castle_ptr->SetDecriptionOfRooms();
 	castle_ptr->SetNumbersofRooms();
 
-	//Code to get the name of the Player
 	char username[20];
 	Helper::Color(YELLOW);
 	std::cout << "Enter your name : ";
 	std::cin.getline(username, 20);
 
-
-	//Creating Player for the Game
 	player_ptr = new Player(username, castle_ptr->GetRoom(1));
 }
 
@@ -73,6 +67,7 @@ void Game::DisplayStory()
 	SocketHst socketHst;
 	socketHst.Download(file_name);
 	ifstream InputStream(file_name);
+
 	if (InputStream.is_open())
 	{
 		Helper::Color(PURPLE);
@@ -80,13 +75,14 @@ void Game::DisplayStory()
 
 		while (!InputStream.eof())
 		{
-
 			InputStream.getline(buffer, 200);
 			std::cout << buffer << std::endl;
 		}
 	}
 	else
+	{
 		std::cout << "Could not open file";
+	}
 	InputStream.close();
 	WSACleanup();
 }
@@ -97,6 +93,7 @@ void Game::GameRule()
 	SocketHst socketHst;
 	socketHst.Download(file_name);
 	ifstream InputStream(file_name);
+
 	if (InputStream.is_open())
 	{
 		//Helper::Color(w);
@@ -110,7 +107,9 @@ void Game::GameRule()
 		}
 	}
 	else
+	{
 		std::cout << "Could not open file";
+	}
 	InputStream.close();
 	WSACleanup();
 }
@@ -121,6 +120,7 @@ void Game::PlayerDead()
 	SocketHst socketHst;
 	socketHst.Download(file_name);
 	ifstream InputStream(file_name);
+
 	if (InputStream.is_open())
 	{
 		Helper::Color(RED);
@@ -131,14 +131,16 @@ void Game::PlayerDead()
 
 			while (!InputStream.eof())
 			{
-
 				InputStream.getline(buffer, 200);
 				std::cout << buffer << std::endl;
 			}
 		}
 	}
 	else
+	{
 		std::cout << "Could not open file";
+	}
+
 	InputStream.close();
 	WSACleanup();
 }
@@ -151,6 +153,7 @@ void Game::GameCheck()
 		SocketHst socketHst;
 		socketHst.Download(file_name);
 		ifstream InputStream(file_name);
+
 		if (InputStream.is_open())
 		{
 			Helper::Color(AQUA);
@@ -164,20 +167,19 @@ void Game::GameCheck()
 			}
 		}
 		else
+		{
 			cout << "Could not open file";
+		}
 		InputStream.close();
 		WSACleanup();
 	}
-
-
-
 	else
 	{
-
 		char file_name[FILE_NAME_MAX_SIZE + 1] = "endlose.txt";
 		SocketHst socketHst;
 		socketHst.Download(file_name);
 		ifstream InputStream(file_name);
+
 		if (InputStream.is_open())
 		{
 			char buffer[200];
@@ -188,9 +190,10 @@ void Game::GameCheck()
 				cout << buffer << endl;
 			}
 		}
-
 		else
+		{
 			cout << "Could not open file";
+		}
 		InputStream.close();
 	}
 	WSACleanup();
@@ -216,7 +219,6 @@ void Game::Play()
 	bool exit_Castle = false;
 	player_ptr->Look();
 
-
 	do
 	{
 		Helper::Color(YELLOW);
@@ -225,9 +227,7 @@ void Game::Play()
 		char fullCommand[30];
 		cin.getline(fullCommand, 30);
 
-		//Converting all the characters of fullCommand to UpperCase
 		Helper::CharactersCase(fullCommand);
-
 
 		char command[15];
 
@@ -240,33 +240,34 @@ void Game::Play()
 
 		functionName[i] = '\0';
 
-		//Check for LOOK and EXIT Command's Case
 		if (strlen(functionName) != strlen(fullCommand))
+		{
 			strcpy_s(command, 25, fullCommand + i + 1);
-
+		}
 
 		if (strcmp(functionName, "MOVE") == 0)
 		{
 			if (player_ptr->Move(command, exit_Castle))
+			{
 				player_ptr->Look();
-
+			}
 			if (exit_Castle == true)
 			{
 				GameCheck();
 			}
 		}
-
-
 		else if (strcmp(functionName, "PICK") == 0)
+		{
 			player_ptr->Pick(command);
-
+		}
 		else if (strcmp(functionName, "DROP") == 0)
+		{
 			player_ptr->Drop(command);
-
+		}
 		else if (strcmp(functionName, "LOOK") == 0)
+		{
 			player_ptr->Look();
-
-
+		}
 		else if (strcmp(functionName, "ATTACK") == 0)
 		{
 			if (player_ptr->Attack(command))
@@ -274,9 +275,10 @@ void Game::Play()
 				castle_ptr->HiddenRoomsUnlocker(command, monsters_ptr);
 			}
 			else if (player_ptr->GetCurState() == false)
+			{
 				PlayerDead();
+			}
 		}
-
 		else if (strcmp(functionName, "EXIT") == 0)
 		{
 			player_ptr->Exit();

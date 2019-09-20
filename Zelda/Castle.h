@@ -1,5 +1,12 @@
+/*
+*@Discription Castle类头文件    
+*@Author tong
+*@Date   2019/9/19
+*/
+
 #pragma once
 #include "Room.h"
+
 class Castle
 {
 public:
@@ -15,8 +22,6 @@ public:
 
 	void SetDecriptionOfRooms();
 	void SetNumbersofRooms();
-
-
 
 private:
 	Room rooms[9];
