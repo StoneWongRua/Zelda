@@ -113,7 +113,6 @@ void Castle::SetDecriptionOfRooms()
 	if (InputStream.is_open())
 	{
 		char buffer[300];
-
 		for (int i = 0; i < 9 && !InputStream.eof(); ++i)
 		{
 			InputStream.getline(buffer, 300);
@@ -121,7 +120,9 @@ void Castle::SetDecriptionOfRooms()
 		}
 	}
 	else
+	{
 		cout << "Could not open file";
+	}
 	InputStream.close();
 }
 

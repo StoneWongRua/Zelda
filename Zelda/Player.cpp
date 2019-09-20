@@ -283,7 +283,7 @@ bool Player::Attack(char const* monsterName)
 void Player::Look()
 {
 	Helper::Color(RED);
-	cout << "\n你现在在 " << cur_room->GetRoomNumber() << "。 ";
+	cout << "\n你现在在房间 " << cur_room->GetRoomNumber() << "。\n ";
 
 	for (int i = 0; i < 4; ++i)
 	{
@@ -291,7 +291,7 @@ void Player::Look()
 
 		if ((cur_room->GetPaths())[i] != NULL)
 		{
-			cout << " 你的 " << cur_room->DirectionName(i) << " 边有1间房间。";
+			cout << " 你的 " << cur_room->DirectionName(i) << " 边有1间房间。\n";
 		}
 	}
 
@@ -309,7 +309,7 @@ void Player::Look()
 		Helper::Color(RED);
 		if ((cur_room->GetCurMonster())->GetLivingState() == true)
 		{
-			cout << (cur_room->GetCurMonster())->GetMonsterName() << "正准备从你身后锁住的门后杀死你。";
+			cout << (cur_room->GetCurMonster())->GetMonsterName() << "正准备从你身后锁住的门后杀死你。\n";
 		}
 		else
 		{
@@ -349,7 +349,7 @@ void Player::Look()
 void Player::Exit()
 {
 	Helper::Color(WHITE);
-	cout << "感谢 " << GetPlayerName() << " 体验游戏Zelda.\n游戏退出中 .........";
+	cout << "感谢 " << GetPlayerName() << " 体验游戏。\n游戏退出中 .........";
 }
 
 

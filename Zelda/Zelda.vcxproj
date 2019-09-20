@@ -136,7 +136,6 @@
     <ClCompile Include="Princess.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Download.cpp" />
-    <ClCompile Include="test.cpp" />
     <ClCompile Include="Treasure.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>

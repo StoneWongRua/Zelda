@@ -204,7 +204,7 @@ void Game::Play()
 	cout << "\n\n\n\n";
 	char s[300] = "\t\t\t#####################################################\n"
 		"\t\t\t#                                                   #\n"
-		"\t\t\t#                     zelda                         #\n"
+		"\t\t\t#                  拯救塞尔达公主                  #\n"
 		"\t\t\t#                                                   #\n"
 		"\t\t\t#####################################################";
 
@@ -277,7 +277,7 @@ void Game::Play()
 			else if (player_ptr->GetCurState() == false)
 			{
 				PlayerDead();
-				cout << "感谢 " << player_ptr->GetPlayerName() << " 体验游戏Zelda.\n";
+				cout << "感谢 " << player_ptr->GetPlayerName() << " 体验游戏。\n";
 			}
 		}
 		else if (strcmp(functionName, "EXIT") == 0)
