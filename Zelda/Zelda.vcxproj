@@ -119,7 +119,6 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="Message.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Princess.h" />
@@ -136,7 +135,8 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Princess.cpp" />
     <ClCompile Include="Room.cpp" />
-    <ClCompile Include="Dowload.cpp" />
+    <ClCompile Include="Download.cpp" />
+    <ClCompile Include="test.cpp" />
     <ClCompile Include="Treasure.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>

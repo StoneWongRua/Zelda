@@ -134,24 +134,24 @@ int Room::GetRoomNumber()
 // paths[2] = East
 // paths[3] = West
 
-void Room::SetNorth(Room* roomNo)
+void Room::SetNorth(Room* room_no)
 {
-	paths[0] = roomNo;
+	paths[0] = room_no;
 }
 
-void Room::SetSouth(Room* roomNo)
+void Room::SetSouth(Room* room_no)
 {
-	paths[1] = roomNo;
+	paths[1] = room_no;
 }
 
-void Room::SetEast(Room* roomNo)
+void Room::SetEast(Room* room_no)
 {
-	paths[2] = roomNo;
+	paths[2] = room_no;
 }
 
-void Room::SetWest(Room* roomNo)
+void Room::SetWest(Room* room_no)
 {
-	paths[3] = roomNo;
+	paths[3] = room_no;
 }
 
 void Room::SetCurItem(int item_num, Item* item)
@@ -169,13 +169,13 @@ void Room::SetCurPrincess(Princess* princess)
 	cur_princess = princess;
 }
 
-void Room::SetDiscription(char const* room_Description)
+void Room::SetDiscription(char const* room_description)
 {
-	description = new char[strlen(room_Description) + 1];
-	strcpy_s(description, strlen(room_Description) + 1, room_Description);
+	description = new char[strlen(room_description) + 1];
+	strcpy_s(description, strlen(room_description) + 1, room_description);
 }
 
-void Room::SetRoomNumber(int roomNo)
+void Room::SetRoomNumber(int room_no)
 {
-	room_num = roomNo;
+	room_num = room_no;
 }

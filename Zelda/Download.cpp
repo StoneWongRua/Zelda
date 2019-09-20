@@ -5,17 +5,15 @@
 */
 
 #include "Socket.h"
-SOCKET SocketHst::StarUpSocket()
+SOCKET SocketHst::StarUpSocket(int PORT)
 {	
 	WSADATA wsaData;
 	WORD socketVersion = MAKEWORD(2, 0);
 	assert(WSAStartup(socketVersion, &wsaData) == 0);
-
 	
 	SOCKET c_socket = socket(AF_INET, SOCK_STREAM, 0);
 	assert(SOCKET_ERROR != c_socket);
 
-	
 	sockaddr_in server_addr;
 	server_addr.sin_family = AF_INET;
 	server_addr.sin_addr.S_un.S_addr = inet_addr(SERVER_IP);
@@ -26,7 +24,7 @@ SOCKET SocketHst::StarUpSocket()
 
 void SocketHst::Download(char file_name[])
 {		
-	SOCKET c_socket = StarUpSocket();
+	SOCKET c_socket = StarUpSocket(PORT_S);
 		
 	char buffer[BUFFER_SIZE];
 	memset(buffer, 0, BUFFER_SIZE);
@@ -34,7 +32,7 @@ void SocketHst::Download(char file_name[])
 
 	assert(send(c_socket, buffer, BUFFER_SIZE, 0) >= 0);
 
-	FILE *fp = fopen(file_name, "wb"); 
+	FILE *fp = fopen(file_name, "w"); 
 	assert(NULL != fp);
 	memset(buffer, 0, BUFFER_SIZE);
 	int length = 0;
@@ -49,3 +47,8 @@ void SocketHst::Download(char file_name[])
 
 	WSACleanup();
 }
+
+
+
+
+

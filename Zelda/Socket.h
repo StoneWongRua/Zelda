@@ -14,7 +14,8 @@
 #include <cassert>
 #include <WinSock2.h>
 
-#define PORT 8087
+#define PORT_R 8088
+#define PORT_S 8087
 #define SERVER_IP "127.0.0.1"
 #define BUFFER_SIZE 1024
 #define FILE_NAME_MAX_SIZE 512
@@ -23,7 +24,7 @@
 class SocketHst
 {
 public:
-	SOCKET StarUpSocket();
+	SOCKET StarUpSocket(int PORT);
 	void Download(char file_name[]);
 protected:
 

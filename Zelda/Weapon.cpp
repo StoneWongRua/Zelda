@@ -21,10 +21,10 @@ Weapon::~Weapon()
 
 }
 
-Weapon::Weapon(char const* weapon_Name)
+Weapon::Weapon(char const* weapon_name)
 {
-	name = new char[strlen(weapon_Name) + 1];
-	strcpy_s(name, strlen(weapon_Name) + 1, weapon_Name);
+	name = new char[strlen(weapon_name) + 1];
+	strcpy_s(name, strlen(weapon_name) + 1, weapon_name);
 }
 
 int Weapon::GetWorth()

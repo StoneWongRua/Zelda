@@ -127,11 +127,11 @@ void Game::PlayerDead()
 
 		while (!InputStream.eof())
 		{
-			char buffer[200];
+			char buffer[2048];
 
 			while (!InputStream.eof())
 			{
-				InputStream.getline(buffer, 200);
+				InputStream.getline(buffer, 2048);
 				std::cout << buffer << std::endl;
 			}
 		}
@@ -229,7 +229,7 @@ void Game::Play()
 
 		Helper::CharactersCase(fullCommand);
 
-		char command[15];
+		char command[300];
 
 		int i = 0;
 
@@ -242,7 +242,7 @@ void Game::Play()
 
 		if (strlen(functionName) != strlen(fullCommand))
 		{
-			strcpy_s(command, 25, fullCommand + i + 1);
+			strcpy_s(command, 35, fullCommand + i + 1);
 		}
 
 		if (strcmp(functionName, "MOVE") == 0)
@@ -277,6 +277,7 @@ void Game::Play()
 			else if (player_ptr->GetCurState() == false)
 			{
 				PlayerDead();
+				cout << "感谢 " << player_ptr->GetPlayerName() << " 体验游戏Zelda.\n";
 			}
 		}
 		else if (strcmp(functionName, "EXIT") == 0)

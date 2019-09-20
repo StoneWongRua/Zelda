@@ -263,7 +263,8 @@ bool Player::Attack(char const* monsterName)
 			{
 				SetCurState(false);
 				Helper::Color(RED);
-				cout << "/n你的背包中没有杀死" << monsterName << "所需的武器";
+				cout << "\n你的背包中没有杀死" << monsterName << "所需的武器。\n";
+				
 			}
 		}
 		else if ((((cur_room->GetCurMonster())->GetLivingState()) == false))
@@ -299,7 +300,7 @@ void Player::Look()
 		Helper::Color(WHITE);
 		if ((cur_room->GetCurItems())[i] != NULL)
 		{
-			cout << ((cur_room->GetCurItems())[i])->GetItemName() << "正躺在地上。";
+			cout << "房里有"<<((cur_room->GetCurItems())[i])->GetItemName();
 		}
 	}
 

@@ -25,7 +25,7 @@ bool Princess::GetLivingState()
 	return is_alive;
 }
 
-void Princess::SetLivingState(bool currentState)
+void Princess::SetLivingState(bool current_state)
 {
-	is_alive = currentState;
+	is_alive = current_state;
 }

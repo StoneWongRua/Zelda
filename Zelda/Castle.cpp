@@ -109,7 +109,6 @@ void Castle::SetDecriptionOfRooms()
 	char file_name[FILE_NAME_MAX_SIZE + 1] = "rooms.txt";
 	SocketHst socketHst;
 	socketHst.Download(file_name);
-	string file_name = "rooms.txt";
 	ifstream InputStream(file_name);
 	if (InputStream.is_open())
 	{
