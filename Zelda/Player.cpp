@@ -124,17 +124,17 @@ bool Player::Move(char const* direction, bool& exit_Castle)
 		if (cur_room->GetCurPrincess())
 		{
 			Helper::Color(AQUA);
-			cout << "公主站在黑暗中等待着你。 ";
+			cout << "公主站在黑暗中等待着你。";
 			princess_ptr = cur_room->GetCurPrincess();
 			cur_room->SetCurPrincess(nullptr);
 		}
 		Helper ::Color(RED);
-		cout << "\n 您已成功转移到房间: " << cur_room->GetRoomNumber();
+		cout << "\n您已成功转移到房间: " << cur_room->GetRoomNumber();
 	}
 	else
 	{
 		Helper::Color(RED);
-		cout << "\nMOVE " << direction << " 是无效命令.";
+		cout << "\nMOVE " << direction << "是无效命令.";
 	}
 	return moveSuccessful;
 }
@@ -179,12 +179,12 @@ void Player::Pick(char const* itemName)
 	Helper::Color(RED);
 	if (picked)
 	{
-		cout << endl << itemName << " 成功收集。";
+		cout << endl << itemName << "成功收集。";
 	}
 
 	else if (itemFound == false)
 	{
-		cout << endl << itemName << " 不在当前房间。";
+		cout << endl << itemName << "不在当前房间。";
 	}
 }
 
@@ -220,8 +220,8 @@ void Player::Drop(char const* itemName)
 				else
 				{
 					Helper::Color(AQUA);
-					cout << "/n/" << itemName << " 不能在此房间被丢弃。 " << cur_room->GetRoomNumber()
-						<< " 房间已满。";
+					cout << "/n/" << itemName << "不能在此房间被丢弃。 " << cur_room->GetRoomNumber()
+						<< "房间已满。";
 				}
 			}
 		}
@@ -231,12 +231,12 @@ void Player::Drop(char const* itemName)
 
 	if (dropped)
 	{
-		cout << endl << itemName << " 已经被丢弃。";
+		cout << endl << itemName << "已经被丢弃。";
 
 	}
 	else if (item_in_bag == false)
 	{
-		cout << endl << itemName << " 不能丢弃，因为它不在你的包里。";
+		cout << endl << itemName << "不能丢弃，因为它不在你的包里。";
 	}
 }
 
@@ -254,7 +254,7 @@ bool Player::Attack(char const* monsterName)
 				{
 					(cur_room->GetCurMonster())->SetLivingState(false);
 					Helper::Color(RED);
-					cout << monsterName << " 已经被杀死。 ";
+					cout << monsterName << "已经被杀死。 ";
 
 					killed = true;
 				}
@@ -269,12 +269,12 @@ bool Player::Attack(char const* monsterName)
 		}
 		else if ((((cur_room->GetCurMonster())->GetLivingState()) == false))
 		{
-			cout << endl << monsterName << " 已经死亡。";
+			cout << endl << monsterName << "已经死亡。";
 		}
 	}
 	else
 	{
-		cout << endl << monsterName << " 不在当前房间。";
+		cout << endl << monsterName << "不在当前房间。";
 	}
 
 	return killed;
@@ -283,7 +283,7 @@ bool Player::Attack(char const* monsterName)
 void Player::Look()
 {
 	Helper::Color(RED);
-	cout << "\n你现在在房间 " << cur_room->GetRoomNumber() << "。\n ";
+	cout << "\n你现在在房间" << cur_room->GetRoomNumber() << "。\n";
 
 	for (int i = 0; i < 4; ++i)
 	{
@@ -291,7 +291,7 @@ void Player::Look()
 
 		if ((cur_room->GetPaths())[i] != NULL)
 		{
-			cout << " 你的 " << cur_room->DirectionName(i) << " 边有1间房间。\n";
+			cout << "你的 " << cur_room->DirectionName(i) << "边有1间房间。\n";
 		}
 	}
 
@@ -320,7 +320,7 @@ void Player::Look()
 	Helper::Color(PURPLE);
 	if (princess_ptr)
 	{
-		cout << " 公主跟你在一起。";
+		cout << "公主跟你在一起。";
 	}
 
 	Helper::Color(GREEN);
@@ -349,7 +349,7 @@ void Player::Look()
 void Player::Exit()
 {
 	Helper::Color(WHITE);
-	cout << "感谢 " << GetPlayerName() << " 体验游戏。\n游戏退出中 .........";
+	cout << "感谢" << GetPlayerName() << "体验游戏。\n游戏退出中 .........";
 }
 
 
